@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApp.Models.Department>;
+<h1>this is department controller index page</h1>
+<a asp-controller="Departments" asp-action="Create">Create</a>
+
+<table class ="table table-bordered">
+	<thead>
+		<tr>
+			<td>No</td>
+			<td>Name</td>
+			<td>Location</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var itme in Model)
+		{
+			<tr>
+				<td>@itme.DepartmentId</td>
+				<td>@itme.Name</td>
+				<td>@itme.Location</td>
+				<td>
+					<a asp-contoller="Departments" asp-action="Detail" asp-route-id="@itme.DepartmentId">View</a>
+					<a asp-contoller="Departments" asp-action="Edit" asp-route-id="@itme.DepartmentId">Edit</a>
+					<a asp-contoller="Departments" asp-action="Delete" asp-route-id="@itme.DepartmentId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
